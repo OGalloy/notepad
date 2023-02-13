@@ -1,0 +1,5 @@
+Что нужно изменить
+steps
+
+1. In note.py change field time last edition. field must be human-readable.
+2. Пока всё)))

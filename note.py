@@ -2,11 +2,11 @@
 import datetime
 
 class Note:
-	def __init__(self, id, title, body):
+	def __init__(self, id, title, body, time_last_edition = datetime.datetime.now()):
 		self.id = id
 		self.title = title
 		self.body = body
-		self.time_last_edition = datetime.datetime.now()
+		self.time_last_edition = time_last_edition
 
 	def set_title(new_title):
 		self.title = new_title
