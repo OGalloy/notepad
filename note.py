@@ -7,3 +7,11 @@ class Note:
 		self.title = title
 		self.body = body
 		self.time_last_edition = datetime.datetime.now()
+
+	def set_title(new_title):
+		self.title = new_title
+		self.time_last_edition = datetime.datetime.now()
+
+	def set_body(new_body):
+		self.body = new_body
+		self.time_last_edition = datetime.datetime.now()
