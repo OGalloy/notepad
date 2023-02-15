@@ -19,11 +19,11 @@ class Notepad:
             print("********List of Notes***********")
             for n in self.notes_list:
                 print(f"ID: {n.id} | Title: {n.title}")
-
+    #            
     def create_note(self, title, body):
         new_note = Note(len(self.notes_list)+1, title, body,)
         self.notes_list.append(new_note)
-        print("New note created")
+        print("New note was created")
 
     #read note by id    
     def read_note(self, id):
@@ -35,21 +35,38 @@ class Notepad:
                 print(f"{n.body}")
                 print(f"LastChange: {n.time_last_edition}")
 
-
+    #            
     def update_note(self, id, title, body):
         for n in self.notes_list:
             if n.id == id:
                 n.set_title(title)
                 n.set_body(body)
+        print("Note was update.")
 
     def delete_note(self, id):
         for n in self.notes_list:
             if n.id == id:
                 self.notes_list.remove(n)
+        print("Note was deleted.")
         counter = 1
         for n in self.notes_list:
             n.id = counter
             counter+=1
+    
+    def find_note(self,sub_string):
+        result = [] 
+        for n in self.notes_list:
+            if n.title.find(sub_string) >=0 or n.body.find(sub_string) >=0:
+                result.append(n)
+        for n in result:
+            self.read_note(n.id)
+
+    def save_notes(self):
+        file = open("notes.txt", "w")
+        for n in self.notes_list:
+            file.write(f"{n.id}|{n.title}|{n.body}|{n.time_last_edition}")
+        print("Notes was saved.")
+
 
 if __name__ == "__main__":
     #Code for test
@@ -60,3 +77,4 @@ if __name__ == "__main__":
     np.show_all_notes()
     np.read_note(1)
     np.read_note(2)
+    np.read_note(3)
